@@ -21,8 +21,8 @@ time.
 - [Project Layout](#project-layout)
 - [Tests](#tests)
 - [Troubleshooting](#troubleshooting)
-- [Known Limitations](#Known Limitations)
-- [Future Improvements](#Future Improvements)
+- [Known Limitations](#Known_Limitations)
+- [Future Improvements](#Future_Improvements)
 
 
 ---
@@ -361,7 +361,7 @@ Explorer's "Copy as path," it includes literal surrounding quotes; the
 program strips those automatically, but if something still looks off,
 try typing the path directly instead.
 
-## Known Limitations
+## Known_Limitations
 
 ### Raw HTML slides
 
@@ -380,7 +380,7 @@ try typing the path directly instead.
 
 2.pptx export does not support images and custom html (an area for future improvement)
 
-## Future Improvements
+## Future_Improvements
 
 - Speaker notes
 - PDF export
