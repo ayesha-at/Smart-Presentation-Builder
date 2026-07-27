@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Slide 8 - Forest</title>
+<style>* { margin:0; padding:0; box-sizing:border-box; }body {  background:linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  padding: 40px 20px;}.slide {  max-width: 1000px;  margin: 40px auto;  background: #0d1f11;  border-radius: 28px;  padding: 50px;  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);  transition: transform 0.3s ease, box-shadow 0.3s ease;  page-break-after: always;}.slide:hover {  transform: translateY(-8px);  box-shadow: 0 35px 60px -15px rgba(0,0,0,0.6);}h1 {  font-size: 68px;  font-weight: 800;  background: linear-gradient(135deg, #a8e6cf 0%, #78c091 100%);  -webkit-background-clip: text;  background-clip: text;  color: transparent;  margin-bottom: 20px;  text-align: center;  letter-spacing: -1px;}h2 {  font-size: 44px;  font-weight: 700;  color: #a8e6cf;  margin-bottom: 30px;  padding-bottom: 15px;  border-bottom: 3px solid #78c091;  display: inline-block;}h3 {  font-size: 28px;  color: #b8e1b8;  font-weight: 400;  text-align: center;  margin-top: 20px;  opacity: 0.9;}p {  color: #b8e1b8;  font-size: 20px;  line-height: 1.7;  margin: 20px 0;}ul {  list-style-type: disc;  padding-left: 40px;}li {  color: #b8e1b8;  font-size: 20px;  line-height: 1.6;  padding: 12px 0 12px 35px;  position: relative;  margin: 8px 0;}img {  max-width: 90%;  height: auto;  border-radius: 16px;  display: block;  margin: 30px auto;  box-shadow: 0 10px 30px rgba(0,0,0,0.2);  transition: transform 0.3s ease;}img:hover {  transform: scale(1.02);}.number {  color: #78c091;  font-size: 13px;  text-align: right;  margin-bottom: 15px;  font-weight: 600;  letter-spacing: 1px;}.caption {  text-align: center;  color: #b8e1b8;  font-size: 15px;  margin-top: 10px;  opacity: 0.7;  font-style: italic;}@media (max-width: 768px) {  .slide { padding: 30px; margin: 20px; }  h1 { font-size: 44px; }  h2 { font-size: 32px; }  p, li { font-size: 18px; }}</style></head>
+<body>
+<div class='slide'><p class='number'>Slide 8 (Custom)</p><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Architecture in C - Slide</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --accent-blue: #38bdf8;
+            --accent-green: #4ade80;
+            --accent-purple: #c084fc;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --code-bg: #090d16;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #020617;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 16:9 Presentation Slide Container */
+        .slide {
+            width: 100%;
+            max-width: 1280px;
+            aspect-ratio: 16 / 9;
+            background-color: var(--bg-color);
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            padding: 40px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: var(--text-main);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Slide Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            color: var(--accent-blue);
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        /* Architecture Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 24px 0;
+            flex-grow: 1;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .pill {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pill-blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+        .pill-green { background: rgba(74, 222, 128, 0.15); color: var(--accent-green); }
+        .pill-purple { background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        /* Code Block Visualization */
+        .code-block {
+            background-color: var(--code-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Consolas', 'Fira Code', monospace;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: #e2e8f0;
+            overflow: x-auto;
+            flex-grow: 1;
+        }
+
+        .kw { color: #f43f5e; font-weight: bold; } /* Keywords */
+        .type { color: var(--accent-blue); }       /* Types */
+        .func { color: var(--accent-green); }      /* Functions */
+        .var { color: var(--accent-purple); }      /* Variables */
+        .comment { color: #64748b; font-style: italic; }
+
+        /* Slide Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding-top: 12px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .flow-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: monospace;
+            color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <!-- Header -->
+        <div class="header">
+            <h1>Building <span>OOP Architecture</span> in C</h1>
+            <div class="tagline">Structs + Function Pointers = Classes</div>
+        </div>
+
+        <!-- 3-Pillar Visual Architecture Grid -->
+        <div class="content-grid">
+            
+            <!-- Pillar 1: Encapsulation -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="pill pill-blue">Pillar 1</span>
+                    <h2 class="card-title">Encapsulation</h2>
+                </div>
+                <p class="card-desc">Combine data fields and method function pointers within a single contiguous memory block using a <code>struct</code>.</p>
+                <div class="code-block">
+<span class="kw">typedef struct</span> Shape {
+    <span class="type">int</span> <span class="var">x</span>, <span class="var">y</span>; <span class="comment">// Attributes</span>
+    
+    <span class="comment">// Method pointers</span>
+    <span class="type">void</span> (*<span class="func">draw</span>)(<span class="kw">struct</span> Shape* self);
+} <span class="type">Shape</span>;
+                </div>
+            </div>
+
+            <!-- Pillar 2: Inheritance -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="pill pill-green">Pillar 2</span>
+                    <h2 class="card-title">Inheritance</h2>
+                </div>
+                <p class="card-desc">Embed the base structure as the <strong>first member</strong> of the derived structure to share memory layout and allow safe typecasting.</p>
+                <div class="code-block">
+<span class="kw">typedef struct</span> {
+    <span class="type">Shape</span> <span class="var">base</span>; <span class="comment">// Embedded base</span>
+    <span class="type">int</span> <span class="var">radius</span>;  <span class="comment">// Extension</span>
+} <span class="type">Circle</span>;
+
+<span class="comment">// Safe Upcasting:</span>
+<span class="type">Shape</span>* s = (<span class="type">Shape</span>*)&myCircle;
+                </div>
+            </div>
+
+            <!-- Pillar 3: Polymorphism -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="pill pill-purple">Pillar 3</span>
+                    <h2 class="card-title">Polymorphism</h2>
+                </div>
+                <p class="card-desc">Assign concrete function implementations dynamically at runtime via a virtual table (vtable) or function pointers.</p>
+                <div class="code-block">
+<span class="type">void</span> <span class="func">circle_draw</span>(<span class="type">Shape</span>* self) {
+    <span class="comment">// Implementation</span>
+}
+
+<span class="comment">// Bind implementation:</span>
+c.<span class="var">base</span>.<span class="func">draw</span> = <span class="func">circle_draw</span>;
+c.<span class="var">base</span>.<span class="func">draw</span>((<span class="type">Shape</span>*)&c);
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="flow-indicator">
+                [Memory Layout] Shape Base Structural Offset == 0
+            </div>
+            <div>Low-Level Architecture | System Programming</div>
+        </div>
+    </div>
+
+</body>
+</html>
+</div>
+</body>
+</html>

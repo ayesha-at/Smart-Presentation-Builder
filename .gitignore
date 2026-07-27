@@ -27,10 +27,6 @@ x86/
 *.idb
 *.tlog
 
-# Generated presentations
-presentation.html
-presentation.pptx
-slide_*.html
 
 # User generated archives
 *.zip
