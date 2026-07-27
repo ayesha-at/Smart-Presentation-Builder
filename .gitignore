@@ -1,0 +1,47 @@
+# =========================
+# Build directories
+# =========================
+build/
+out/
+bin/
+Debug/
+Release/
+x64/
+x86/
+
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+*.opensdf
+*.sdf
+*.suo
+*.user
+*.userosscache
+*.ipch
+
+# Visual Studio generated
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.tlog
+
+# Generated presentations
+presentation.html
+presentation.pptx
+slide_*.html
+
+# User generated archives
+*.zip
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
