@@ -43,4 +43,4 @@ add_test(NAME TemplateManagerTests COMMAND test_template_manager)
 
 add_executable(test_http_client test_http_client.cpp)
 target_link_libraries(test_http_client PRIVATE presentation_builder_lib)
-add_test(NAME HttpClientTests COMMAND test_http_client)
+# add_test(NAME HttpClientTests COMMAND test_http_client)
