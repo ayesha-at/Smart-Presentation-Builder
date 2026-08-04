@@ -38,13 +38,7 @@
     static const SockHandle INVALID_SOCK = -1;
 #endif
 
-using std::atomic;
-using std::string;
-using std::thread;
-using std::cout;
-using std::ref;
-using std::this_thread;
-using std::chrono::milliseconds;
+using namespace std;
 
 namespace
 {
