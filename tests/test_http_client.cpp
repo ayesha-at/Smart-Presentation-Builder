@@ -38,7 +38,13 @@
     static const SockHandle INVALID_SOCK = -1;
 #endif
 
-using namespace std;
+using std::atomic;
+using std::string;
+using std::thread;
+using std::cout;
+using std::ref;
+using std::this_thread;
+using std::chrono::milliseconds;
 
 namespace
 {
@@ -82,7 +88,7 @@ namespace
         addr.sin_addr.s_addr = INADDR_ANY;
         addr.sin_port = htons((unsigned short)port);
 
-        if (bind(listener, (sockaddr*)&addr, sizeof(addr)) != 0 || listen(listener, 1) != 0)
+        if (::bind(listener, (sockaddr*)&addr, sizeof(addr)) != 0 || listen(listener, 1) != 0)
         {
             closeSock(listener);
             ready = true; // still signal - the test will fail on the HTTP call, not hang
@@ -103,10 +109,10 @@ namespace
         tv.tv_sec = 5;
         tv.tv_usec = 0;
 
-        int selectResult = select((int)listener + 1, &readSet, nullptr, nullptr, &tv);
+        int selectResult = ::select((int)listener + 1, &readSet, nullptr, nullptr, &tv);
         if (selectResult > 0)
         {
-            SockHandle client = accept(listener, nullptr, nullptr);
+            SockHandle client = ::accept(listener, nullptr, nullptr);
             if (client != INVALID_SOCK)
             {
                 char buf[4096];
