@@ -33,3 +33,15 @@ std::string trim(const std::string& s);
 // present. Windows Explorer's "Copy as path" wraps paths in literal
 // double quotes, which end up as part of the pasted text otherwise.
 std::string stripQuotes(const std::string& s);
+
+// Detects whether `html` contains full-document-level tags: <!DOCTYPE>,
+// <html>, <head>, or <body> (open or close). A Custom HTML slide is meant
+// to be a FRAGMENT embedded inside an existing document's <body> alongside
+// other slides - it has no legitimate reason to contain its own document
+// wrapper. If a user pastes a complete HTML document (including these
+// tags) into a slide, the combined multi-slide export ends up with
+// duplicate/nested <html>/<head>/<body> tags mid-document, which breaks
+// browsers' HTML parsing for everything that comes after that slide.
+// Used to reject such input at creation time rather than letting it
+// silently corrupt the exported presentation later.
+bool containsFullDocumentTags(const std::string& html);

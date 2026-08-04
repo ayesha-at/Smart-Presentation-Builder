@@ -69,6 +69,24 @@ int main()
         assert(stripQuotes("\"") == "\""); // single char - too short to be a pair
     }
 
+    // containsFullDocumentTags: detects a full document pasted where only
+    // a slide fragment was expected (the bug that broke the combined
+    // multi-slide HTML export by nesting duplicate html/head/body tags
+    // mid-document).
+    {
+        assert(containsFullDocumentTags("<!DOCTYPE html><html><head></head><body>hi</body></html>"));
+        assert(containsFullDocumentTags("<html>\n<head>\n</head>\n<body>\n</body>\n</html>"));
+        assert(containsFullDocumentTags("some text <BODY> mixed case still counts</BODY>"));
+        assert(containsFullDocumentTags("<html "));   // tag with trailing attributes/space
+        assert(containsFullDocumentTags("just a </html"));  // closing tag at end of string, no '>'
+
+        // A normal slide fragment must NOT be rejected
+        assert(!containsFullDocumentTags("<div><b>Bold text</b></div>"));
+        assert(!containsFullDocumentTags("<p>Learn HTML today!</p>")); // "HTML" as prose, not a tag
+        assert(!containsFullDocumentTags("<table><tr><td>cell</td></tr></table>"));
+        assert(!containsFullDocumentTags(""));
+    }
+
     cout << "All Utils tests passed.\n";
     return 0;
 }

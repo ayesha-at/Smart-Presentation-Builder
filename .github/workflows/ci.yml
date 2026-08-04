@@ -13,6 +13,14 @@ on:
 
 jobs:
   build-and-test:
+    # Without an explicit timeout, a hung process (a test that blocks
+    # forever instead of failing) eats GitHub's default 6-hour job limit
+    # before anything reports back - this happened once already (see the
+    # test_http_client.cpp fix for the actual root cause). This bound
+    # exists so ANY future hang, from this or any other cause, fails fast
+    # instead of silently burning hours of CI minutes.
+    timeout-minutes: 15
+
     strategy:
       fail-fast: false
       matrix:

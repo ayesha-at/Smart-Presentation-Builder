@@ -2,6 +2,7 @@
 #include <iostream>
 #include <limits>
 #include <cstdlib>
+#include <cctype>
 
 using namespace std;
 
@@ -88,4 +89,35 @@ string stripQuotes(const string& s)
             return s.substr(1, s.size() - 2);
     }
     return s;
+}
+
+bool containsFullDocumentTags(const string& html)
+{
+    string lower = html;
+    for (auto& c : lower)
+        c = (char)tolower((unsigned char)c);
+
+    if (lower.find("<!doctype") != string::npos)
+        return true;
+
+    // Checks for an actual tag (followed by '>', whitespace, or '/'), not
+    // just the substring appearing anywhere - so legitimate prose like
+    // "Learn HTML today" inside a slide never gets mistaken for a tag.
+    auto hasTag = [&](const string& needle) {
+        size_t pos = 0;
+        while ((pos = lower.find(needle, pos)) != string::npos)
+        {
+            size_t afterPos = pos + needle.size();
+            char after = (afterPos < lower.size()) ? lower[afterPos] : '>';
+            if (after == '>' || after == ' ' || after == '\t' ||
+                after == '\n' || after == '\r' || after == '/')
+                return true;
+            pos = afterPos;
+        }
+        return false;
+    };
+
+    return hasTag("<html") || hasTag("</html") ||
+           hasTag("<head") || hasTag("</head") ||
+           hasTag("<body") || hasTag("</body");
 }
